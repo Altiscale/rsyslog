@@ -125,6 +125,9 @@ endif
 if ENABLE_OMSTDOUT
 SUBDIRS += plugins/omstdout
 endif
+if ENABLE_OMKAFKA
+SUBDIRS += plugins/omkafka
+endif
 
 if ENABLE_PMCISCONAMES
 SUBDIRS += plugins/pmcisconames
@@ -230,6 +233,7 @@ DISTCHECK_CONFIGURE_FLAGS=	--enable-gssapi_krb5 \
 				--enable-diagtools \
 				--enable-gnutls \
 				--enable-omstdout \
+				--enable-omkafka \
 				--enable-pmlastmsg \
 				--enable-omruleset \
 				--enable-omprog \

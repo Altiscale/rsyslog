@@ -939,6 +939,17 @@ AC_ARG_ENABLE(omstdout,
 )
 AM_CONDITIONAL(ENABLE_OMSTDOUT, test x$enable_omstdout = xyes)
 
+# settings for omkafka
+AC_ARG_ENABLE(omkafka,
+        [AS_HELP_STRING([--enable-omkafka],[Compiles kafka module @<:@default=no@:>@])],
+        [case "${enableval}" in
+         yes) enable_omkafka="yes" ;;
+          no) enable_omkafka="no" ;;
+           *) AC_MSG_ERROR(bad value ${enableval} for --enable-omkafka) ;;
+         esac],
+        [enable_omkafka=no]
+)
+AM_CONDITIONAL(ENABLE_OMKAFKA, test x$enable_omkafka = xyes)
 
 # settings for pmlastmsg
 AC_ARG_ENABLE(pmlastmsg,
@@ -1209,6 +1220,7 @@ AC_CONFIG_FILES([Makefile \
 		plugins/mmsnmptrapd/Makefile \
 		plugins/cust1/Makefile \
 		java/Makefile \
+		plugins/omkafka/Makefile \
 		tests/Makefile])
 AC_OUTPUT
 
@@ -1238,6 +1250,7 @@ echo "---{ output plugins }---"
 echo "    Mail support enabled:                     $enable_mail"
 echo "    omprog module will be compiled:           $enable_omprog"
 echo "    omstdout module will be compiled:         $enable_omstdout"
+echo "    omkafka module will be compiled:          $enable_omkafka"
 echo "    omhdfs module will be compiled:           $enable_omhdfs"
 echo "    omruleset module will be compiled:        $enable_omruleset"
 echo "    omdbalerting module will be compiled:     $enable_omdbalerting"
